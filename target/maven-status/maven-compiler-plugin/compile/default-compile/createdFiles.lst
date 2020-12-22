@@ -1,0 +1,9 @@
+com\azeus\exam\StartUpApplication.class
+com\azeus\exam\restful\controller\ProductController.class
+com\azeus\exam\service\impl\ProductServiceImpl.class
+com\azeus\exam\dto\Product.class
+com\azeus\exam\entity\Product.class
+com\azeus\exam\service\ProductService.class
+com\azeus\exam\support\StaticResourceConfiguration.class
+com\azeus\exam\support\CorsConfig.class
+com\azeus\exam\repo\ProductRepository.class

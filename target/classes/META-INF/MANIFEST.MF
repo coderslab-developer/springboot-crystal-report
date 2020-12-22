@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: product-nastech-tiepnm
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: zubayer
+Implementation-Vendor-Id: com.azeus.exam
+Build-Jdk: 1.8.0_261
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/product-nastech-tiepnm
+Created-By: Maven Integration for Eclipse
+

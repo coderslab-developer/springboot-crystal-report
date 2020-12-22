@@ -10,11 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class StaticResourceConfiguration extends WebMvcConfigurerAdapter {
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        registry.addResourceHandler("/report/**").addResourceLocations("file:./report/");
+		registry.addResourceHandler("/report/**").addResourceLocations("file:./report/");
 
-    }
+	}
 
 }

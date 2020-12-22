@@ -22,28 +22,30 @@ import java.util.List;
 @Transactional
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
-    @Override
-    public List<Product> getAllProducts() {
-        List<Product> products = new ArrayList<>();
-        List<com.azeus.exam.entity.Product> productDBs = (List<com.azeus.exam.entity.Product>) productRepository.findAll();
-        productDBs.forEach(product -> {
-            Product productItem = new Product();
-            BeanUtils.copyProperties(product, productItem);
-            products.add(productItem);
-        });
-        return products;
-    }
+	@Autowired
+	private ProductRepository productRepository;
 
-    @Override
-    public InputStream exportPdf(String author) throws Exception {
-        ReportClientDocument reportClientDoc = new ReportClientDocument();
-        reportClientDoc.open("product.rpt", OpenReportOptions._openAsReadOnly);
+	@Override
+	public List<Product> getAllProducts() {
+		List<Product> products = new ArrayList<>();
+		List<com.azeus.exam.entity.Product> productDBs = (List<com.azeus.exam.entity.Product>) productRepository
+				.findAll();
+		productDBs.forEach(product -> {
+			Product productItem = new Product();
+			BeanUtils.copyProperties(product, productItem);
+			products.add(productItem);
+		});
+		return products;
+	}
 
-        final List<Product> persons = getAllProducts();
-        reportClientDoc.getDatabaseController().setDataSource(persons, Product.class, "Product", "Product");
-        reportClientDoc.getDataDefController().getParameterFieldController().setCurrentValue("", "Author By", author);
-        return reportClientDoc.getPrintOutputController().export(ReportExportFormat.PDF);
-    }
+	@Override
+	public InputStream exportPdf(String author) throws Exception {
+		ReportClientDocument reportClientDoc = new ReportClientDocument();
+		reportClientDoc.open("product.rpt", OpenReportOptions._openAsReadOnly);
+
+		final List<Product> persons = getAllProducts();
+		reportClientDoc.getDatabaseController().setDataSource(persons, Product.class, "Product", "Product");
+		reportClientDoc.getDataDefController().getParameterFieldController().setCurrentValue("", "Author By", author);
+		return reportClientDoc.getPrintOutputController().export(ReportExportFormat.PDF);
+	}
 }
